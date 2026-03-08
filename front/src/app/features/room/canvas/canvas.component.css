@@ -1,0 +1,30 @@
+canvas {
+  border: none;
+  background-color: #f7f9fc;
+  background-image:
+    radial-gradient(circle, rgba(148, 163, 184, 0.32) 6px, transparent 7px),
+    linear-gradient(rgba(148, 163, 184, 0.12) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(148, 163, 184, 0.12) 1px, transparent 1px);
+  background-size: 116px 116px, 58px 58px, 58px 58px;
+  background-position: 0 0, 0 0, 0 0;
+}
+
+::ng-deep .ant-color-picker-trigger {
+  border: none !important;
+  box-shadow: none !important;
+}
+
+::ng-deep .canvas-container {
+  width: 0px !important;
+  height: 0px !important;
+}
+
+#canvas {
+  width: 100vw !important;
+  height: 100vh !important;
+}
+
+::ng-deep .upper-canvas {
+  width: 100vw !important;
+  height: 100vh !important;
+}

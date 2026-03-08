@@ -1,0 +1,142 @@
+<section class="bc-page">
+  <div class="bc-orb -left-24 top-24 h-80 w-80 bg-emerald-500/20"></div>
+  <div class="bc-orb -right-24 top-20 h-80 w-80 bg-cyan-400/20"></div>
+
+  <div class="bc-container relative py-10 sm:py-14">
+    <div class="grid gap-8 lg:grid-cols-[320px_1fr]">
+      <aside class="bc-card p-6">
+        <div class="flex flex-col items-center gap-4">
+          <div class="relative">
+            <nz-avatar
+              [nzSize]="112"
+              (click)="showModal()"
+              class="cursor-zoom-in ring-2 ring-emerald-300/30"
+              [nzSrc]="avatarUrl?.toString() ? avatarUrl?.toString() : dataUser?.profilePicture?.toString()"
+              nzIcon="user"
+            >
+            </nz-avatar>
+
+            <nz-upload
+              nzAction="https://www.mocky.io/v2/5cc8019d300000980a055e76"
+              [nzHeaders]="{ authorization: 'authorization-text' }"
+              [nzShowUploadList]="false"
+              class="absolute -right-2 -top-2"
+              (nzChange)="handleChange($event)"
+            >
+              <button nz-button class="rounded-full border-none bg-emerald-400 p-2 text-slate-950">
+                <nz-icon nzType="upload" />
+              </button>
+            </nz-upload>
+          </div>
+
+          <h2 class="text-xl font-semibold text-white">{{ dataUser?.username || "User" }}</h2>
+          <p class="text-sm text-slate-400">{{ dataUser?.email }}</p>
+
+          <button
+            (click)="handlePicture()"
+            nz-button
+            nzType="primary"
+            class="w-full rounded-xl border-none bg-emerald-400 py-2 font-semibold text-slate-950 hover:bg-emerald-300"
+            [disabled]="!avatarUrl || isSavingPicture"
+          >
+            {{ isSavingPicture ? 'Saving...' : 'Save new picture' }}
+          </button>
+        </div>
+      </aside>
+
+      <div class="bc-card p-6 sm:p-8">
+        <p class="bc-kicker">Profile settings</p>
+        <h1 class="mt-2 text-3xl font-semibold text-white">Manage your account</h1>
+        <p class="mt-2 text-sm text-slate-400">
+          Update details and keep your workspace identity current.
+        </p>
+
+        <form class="mt-8 space-y-5">
+          <div>
+            <label class="bc-label">Email</label>
+            <nz-input-group nzSize="large" [nzSuffix]="emailSuffix">
+              <input
+                nz-input
+                type="text"
+                [value]="dataUser?.email"
+                [disabled]="isEmailDisabled"
+                placeholder="Email"
+                class="rounded-xl border-slate-700 bg-slate-900/50 px-3 py-2 text-slate-100 hover:border-emerald-300"
+              />
+            </nz-input-group>
+            <ng-template #emailSuffix>
+              <nz-icon (click)="toggleEmailEdit()" class="cursor-pointer text-slate-300 hover:text-emerald-200" nzType="edit" />
+            </ng-template>
+          </div>
+
+          <div>
+            <label class="bc-label">Username</label>
+            <nz-input-group nzSize="large" [nzSuffix]="usernameSuffix">
+              <input
+                nz-input
+                type="text"
+                [value]="dataUser?.username"
+                [disabled]="isUsernameDisabled"
+                placeholder="Username"
+                class="rounded-xl border-slate-700 bg-slate-900/50 px-3 py-2 text-slate-100 hover:border-emerald-300"
+              />
+            </nz-input-group>
+            <ng-template #usernameSuffix>
+              <nz-icon (click)="toggleUsernameEdit()" class="cursor-pointer text-slate-300 hover:text-emerald-200" nzType="edit" />
+            </ng-template>
+          </div>
+
+          <div class="grid gap-4 sm:grid-cols-2">
+            <div>
+              <label class="bc-label">Password</label>
+              <input
+                nz-input
+                type="password"
+                placeholder="New password"
+                class="rounded-xl border-slate-700 bg-slate-900/50 px-3 py-2 text-slate-100 hover:border-emerald-300"
+              />
+            </div>
+
+            <div>
+              <label class="bc-label">Repeat Password</label>
+              <input
+                nz-input
+                type="password"
+                placeholder="Repeat password"
+                class="rounded-xl border-slate-700 bg-slate-900/50 px-3 py-2 text-slate-100 hover:border-emerald-300"
+              />
+            </div>
+          </div>
+
+          <button
+            nz-button
+            class="bc-btn-primary mt-2 w-full rounded-xl py-3 text-base"
+            nzType="primary"
+          >
+            Save changes
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <nz-modal
+    [(nzVisible)]="isVisible"
+    nzDraggable
+    nzCentered
+    [nzFooter]="null"
+    (nzOnCancel)="handleCancel()"
+  >
+    <ng-container *nzModalContent>
+      <div class="h-[420px] overflow-hidden rounded-xl">
+        <nz-avatar
+          nzShape="square"
+          class="h-full w-full bg-cover"
+          [nzSrc]="avatarUrl?.toString() ? avatarUrl?.toString() : dataUser?.profilePicture?.toString()"
+          nzIcon="user"
+        >
+        </nz-avatar>
+      </div>
+    </ng-container>
+  </nz-modal>
+</section>

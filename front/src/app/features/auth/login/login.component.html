@@ -1,0 +1,79 @@
+<nz-spin nzTip="Loading..." [nzSpinning]="isSpinning">
+  <section class="bc-page min-h-[calc(100vh-5.5rem)] sm:min-h-[calc(100vh-6rem)] flex items-center">
+    <div class="bc-orb -left-20 top-16 h-64 w-64 bg-emerald-500/20"></div>
+    <div class="bc-orb -right-20 top-16 h-72 w-72 bg-cyan-400/20"></div>
+
+    <div class="bc-container relative w-full py-6">
+      <div class="mx-auto grid max-w-5xl overflow-hidden rounded-3xl border border-emerald-200/20 bg-slate-950/60 shadow-2xl backdrop-blur lg:grid-cols-2">
+        <div class="hidden flex-col justify-between bg-gradient-to-br from-emerald-500/20 via-slate-900/70 to-slate-950 p-10 lg:flex">
+          <div>
+            <p class="bc-kicker">Welcome back</p>
+            <h1 class="mt-4 text-4xl font-semibold text-white">Sign in and continue creating.</h1>
+            <p class="mt-4 max-w-md text-sm text-slate-300">
+              Rejoin your team workspace and pick up your ideas where you left them.
+            </p>
+          </div>
+          <img class="mx-auto mt-10 max-w-xs" src="assets/login.svg" alt="Login illustration" />
+        </div>
+
+        <div class="bg-slate-950/80 p-6 sm:p-10">
+          <form [formGroup]="formGroup" (submit)="onSubmit()" class="space-y-5">
+            <div>
+              <p class="bc-kicker">Account access</p>
+              <h2 class="mt-2 text-3xl font-semibold text-white">Login</h2>
+              <p class="mt-2 text-sm text-slate-400">Use your email and password to continue.</p>
+              @if (error) {
+                <p class="mt-3 rounded-lg border border-rose-300/40 bg-rose-300/10 px-3 py-2 text-sm text-rose-100">
+                  {{ error }}
+                </p>
+              }
+            </div>
+
+            <div>
+              <label class="bc-label" for="email">Email</label>
+              <input
+                id="email"
+                formControlName="email"
+                placeholder="name@company.com"
+                class="bc-input"
+                type="email"
+              />
+            </div>
+
+            <div>
+              <label class="bc-label" for="password">Password</label>
+              <input
+                id="password"
+                formControlName="password"
+                placeholder="Enter your password"
+                class="bc-input"
+                type="password"
+              />
+            </div>
+
+            <label nz-checkbox class="text-sm text-slate-300">Stay logged in</label>
+
+            <button
+              type="submit"
+              class="bc-btn-primary w-full rounded-xl py-3 text-base"
+            >
+              Login
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <ng-template #template>
+    <div class="ant-notification-notice-content">
+      <div class="ant-notification-notice-with-icon">
+        <span class="ant-notification-notice-icon">
+          <nz-icon nzType="smile" style="color: rgb(16, 142, 233)" />
+        </span>
+        <div class="ant-notification-notice-message">Welcome Back</div>
+        <div class="ant-notification-notice-description">Logged in Successfully</div>
+      </div>
+    </div>
+  </ng-template>
+</nz-spin>

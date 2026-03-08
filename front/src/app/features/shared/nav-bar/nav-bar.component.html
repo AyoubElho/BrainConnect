@@ -1,0 +1,95 @@
+@if (display) {
+  <header class="sticky top-0 z-50">
+    <nav class="bc-container pt-4 sm:pt-6 font-urbanist">
+      <div
+        class="bc-card border-emerald-300/35 bg-slate-950/80 px-4 py-3 sm:px-6"
+      >
+        <div class="flex items-center justify-between gap-4">
+          <a routerLink="/" class="font-mogra text-xl tracking-wide text-emerald-100 sm:text-2xl">
+            BrainConnect
+          </a>
+
+          <button
+            type="button"
+            class="rounded-lg border border-emerald-300/40 bg-emerald-300/10 p-1 text-emerald-100 sm:hidden"
+            (click)="openHumburger()"
+            aria-label="Toggle menu"
+          >
+            <span class="material-symbols-outlined text-[1.8rem] leading-none">
+              menu
+            </span>
+          </button>
+
+          <div class="hidden sm:block">
+            @if (isLoggedIn) {
+              <ul class="flex items-center gap-3 text-sm font-semibold text-slate-100">
+                <li>
+                  <a routerLink="/create" class="bc-btn-secondary px-4 py-2">Create & Join</a>
+                </li>
+                <li>
+                  <a routerLink="/my-rooms" class="bc-btn-ghost px-4 py-2">My Rooms</a>
+                </li>
+                <li>
+                  <button
+                    type="button"
+                    (click)="logout()"
+                    class="bc-btn-ghost border-rose-300/30 bg-rose-200/10 text-rose-100 hover:border-rose-200/70 hover:bg-rose-200/20"
+                  >
+                    Logout
+                  </button>
+                </li>
+                <li>
+                  <a
+                    routerLink="/profile"
+                    class="inline-flex rounded-full outline-none transition hover:opacity-90 focus-visible:ring-2 focus-visible:ring-emerald-300/70"
+                    aria-label="Open profile"
+                  >
+                    <nz-avatar
+                      nzSize="large"
+                      [nzSrc]="userData?.profilePicture || undefined"
+                      nzIcon="user"
+                    ></nz-avatar>
+                  </a>
+                </li>
+              </ul>
+            } @else {
+              <ul class="flex items-center gap-3 text-sm font-semibold text-slate-100">
+                <li><a routerLink="/" class="bc-btn-ghost px-4 py-2">Home</a></li>
+                <li><a routerLink="/signup" class="bc-btn-secondary px-4 py-2">Sign up</a></li>
+                <li><a routerLink="/login" class="bc-btn-primary px-4 py-2">Login</a></li>
+              </ul>
+            }
+          </div>
+        </div>
+
+        <div
+          class="overflow-hidden transition-all duration-300 sm:hidden"
+          [ngClass]="{ 'max-h-72 pt-3': isOpenHumb, 'max-h-0': !isOpenHumb }"
+        >
+          @if (isLoggedIn) {
+            <ul class="space-y-2 text-sm font-semibold">
+              <li><a routerLink="/create" class="block rounded-lg bg-slate-800/70 px-4 py-2">Create & Join</a></li>
+              <li><a routerLink="/my-rooms" class="block rounded-lg bg-slate-800/70 px-4 py-2">My Rooms</a></li>
+              <li>
+                <button
+                  type="button"
+                  (click)="logout()"
+                  class="block w-full rounded-lg bg-rose-400/15 px-4 py-2 text-left text-rose-100"
+                >
+                  Logout
+                </button>
+              </li>
+            </ul>
+          } @else {
+            <ul class="space-y-2 text-sm font-semibold">
+              <li><a routerLink="/" class="block rounded-lg bg-slate-800/70 px-4 py-2">Home</a></li>
+              <li><a routerLink="/signup" class="block rounded-lg bg-slate-800/70 px-4 py-2">Sign up</a></li>
+              <li><a routerLink="/login" class="block rounded-lg bg-emerald-400 px-4 py-2 text-slate-950">Login</a></li>
+            </ul>
+          }
+        </div>
+      </div>
+    </nav>
+  </header>
+}
+

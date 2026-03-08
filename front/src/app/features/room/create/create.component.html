@@ -1,0 +1,112 @@
+<section class="bc-page">
+  <div class="bc-orb -left-24 top-24 h-72 w-72 bg-emerald-500/20"></div>
+  <div class="bc-orb -right-16 top-32 h-80 w-80 bg-cyan-400/20"></div>
+
+  <div class="bc-container relative py-10 sm:py-16">
+    <div class="mx-auto grid max-w-5xl gap-8 lg:grid-cols-[1.1fr_1fr]">
+      <div class="space-y-6">
+        <p class="bc-kicker">Room control center</p>
+        <h1 class="text-4xl font-semibold leading-tight text-white sm:text-5xl">
+          Join a room instantly or create one in seconds.
+        </h1>
+        <p class="max-w-xl text-base text-slate-300 sm:text-lg">
+          Keep collaboration fast. Enter a room code to continue existing work, or create a new room to start a fresh canvas.
+        </p>
+
+        <div class="grid gap-4 sm:grid-cols-2">
+          <article class="bc-card p-4">
+            <p class="text-lg font-semibold text-white">Join by code</p>
+            <p class="mt-1 text-sm text-slate-300">Open an existing board with your team code.</p>
+          </article>
+          <article class="bc-card p-4">
+            <p class="text-lg font-semibold text-white">Create room</p>
+            <p class="mt-1 text-sm text-slate-300">Start a new collaborative space and share it instantly.</p>
+          </article>
+        </div>
+      </div>
+
+      <aside class="bc-card p-6 sm:p-8">
+        <p class="bc-label">Join an existing room</p>
+
+        <nz-input-group nzSearch nzSize="large" [nzAddOnAfter]="suffixButton">
+          <input
+            [(ngModel)]="roomCode"
+            type="text"
+            nz-input
+            placeholder="Type the room code..."
+          />
+        </nz-input-group>
+
+        <ng-template #suffixButton>
+          <button
+            (click)="goToRoom()"
+            nz-button
+            class="border-none bg-emerald-400 px-4 font-semibold text-slate-950"
+            nzSize="large"
+            [disabled]="!roomCode.trim()"
+          >
+            Go
+          </button>
+        </ng-template>
+
+        <div class="my-6 flex items-center gap-3 text-sm text-slate-400">
+          <span class="h-px flex-1 bg-slate-700"></span>
+          <span>or</span>
+          <span class="h-px flex-1 bg-slate-700"></span>
+        </div>
+
+        <button
+          (click)="showModalMiddle()"
+          class="bc-btn-secondary w-full justify-center rounded-xl py-3"
+        >
+          <mat-icon class="mr-2 text-base" fontIcon="add_circle"></mat-icon>
+          Create your own room
+        </button>
+
+        <p class="mt-4 text-sm text-slate-400">
+          Tip: after creating a room, share the generated code with your team.
+        </p>
+      </aside>
+    </div>
+  </div>
+
+  <nz-modal
+    [(nzVisible)]="isVisibleMiddle"
+    nzTitle="Create a Room"
+    nzCentered
+    (nzOnCancel)="handleCancelMiddle()"
+    (nzOnOk)="handleOkMiddle()"
+  >
+    <ng-container *nzModalContent>
+      <form nz-form [formGroup]="roomForm" (ngSubmit)="submitForm()" class="pt-2">
+        <nz-form-item>
+          <nz-form-label [nzSpan]="6" nzRequired>Room Title</nz-form-label>
+          <nz-form-control [nzSpan]="14" nzErrorTip="Please input your room title!">
+            <input nz-input formControlName="title" placeholder="Enter room title" />
+          </nz-form-control>
+        </nz-form-item>
+
+        <nz-form-item>
+          <nz-form-control [nzOffset]="6" [nzSpan]="14">
+            <button nz-button nzType="primary" [disabled]="!roomForm.valid">Create Room</button>
+          </nz-form-control>
+        </nz-form-item>
+      </form>
+    </ng-container>
+    <div *nzModalFooter></div>
+  </nz-modal>
+</section>
+
+<ng-template #template>
+  <div class="ant-notification-notice-content">
+    <div class="ant-notification-notice-with-icon">
+      <span class="ant-notification-notice-icon">
+        <nz-icon nzType="check" nzTheme="outline" class="text-green-500" />
+      </span>
+      <div class="ant-notification-notice-message">Room Created Successfully</div>
+      <div class="ant-notification-notice-description">
+        Your new room has been created successfully.
+      </div>
+    </div>
+  </div>
+</ng-template>

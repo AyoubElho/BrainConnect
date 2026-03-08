@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Urbanist", "Segoe UI", sans-serif;
+  color: #e2f7eb;
+  background:
+    radial-gradient(circle at 15% 20%, rgba(46, 204, 64, 0.18), transparent 42%),
+    radial-gradient(circle at 85% 10%, rgba(16, 185, 129, 0.14), transparent 45%),
+    linear-gradient(180deg, #08161b 0%, #091b21 48%, #061117 100%);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  color: inherit;
+}
+
+@layer base {
+  @font-face {
+    font-family: "Urbanist";
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(assets/fonts/Urbanist/Urbanist-VariableFont_wght.ttf) format("truetype");
+  }
+}
+
+@layer base {
+  @font-face {
+    font-family: "Mogra";
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(assets/fonts/Mogra/Mogra-Regular.ttf) format("truetype");
+  }
+}
+
+@layer components {
+  .bc-page {
+    @apply relative overflow-hidden;
+  }
+
+  .bc-container {
+    @apply container mx-auto px-5 sm:px-10 lg:px-16 xl:px-24;
+  }
+
+  .bc-card {
+    @apply rounded-3xl border border-emerald-200/20 bg-slate-900/70 shadow-[0_30px_80px_-45px_rgba(16,185,129,0.7)] backdrop-blur-xl;
+  }
+
+  .bc-kicker {
+    @apply text-xs uppercase tracking-[0.24em] text-emerald-300/90;
+  }
+
+  .bc-btn-primary {
+    @apply inline-flex items-center justify-center rounded-xl bg-emerald-400 px-5 py-3 text-sm font-semibold text-slate-950 transition hover:bg-emerald-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-200;
+  }
+
+  .bc-btn-secondary {
+    @apply inline-flex items-center justify-center rounded-xl border border-emerald-300/40 bg-emerald-100/5 px-5 py-3 text-sm font-semibold text-emerald-100 transition hover:border-emerald-200/70 hover:bg-emerald-100/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-200;
+  }
+
+  .bc-btn-ghost {
+    @apply inline-flex items-center justify-center rounded-xl border border-slate-600 bg-slate-800/60 px-4 py-2 text-sm font-semibold text-slate-100 transition hover:border-slate-400 hover:bg-slate-700/70;
+  }
+
+  .bc-label {
+    @apply mb-2 block text-xs font-semibold uppercase tracking-[0.18em] text-slate-300;
+  }
+
+  .bc-input {
+    @apply w-full rounded-xl border border-slate-700 bg-slate-900/70 px-4 py-3 text-sm text-slate-100 placeholder:text-slate-400 outline-none transition focus:border-emerald-300 focus:ring-2 focus:ring-emerald-300/25;
+  }
+
+  .bc-orb {
+    @apply pointer-events-none absolute rounded-full blur-3xl;
+  }
+}

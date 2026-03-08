@@ -1,0 +1,49 @@
+﻿@if (display) {
+  <footer class="mt-12 border-t border-emerald-300/20 bg-slate-950/70">
+    <div class="bc-container py-10">
+      <div class="grid gap-8 md:grid-cols-4">
+        <div class="space-y-4">
+          <h3 class="font-mogra text-2xl text-emerald-100">BrainConnect</h3>
+          <p class="max-w-xs text-sm text-slate-300">
+            Collaborate live on one canvas with your team, from first sketch to final idea.
+          </p>
+          <div class="flex gap-2 text-slate-200">
+            <span class="rounded-full border border-slate-700 bg-slate-800/70 p-2"><nz-icon nzType="youtube" nzTheme="fill" /></span>
+            <span class="rounded-full border border-slate-700 bg-slate-800/70 p-2"><nz-icon nzType="facebook" nzTheme="fill" /></span>
+            <span class="rounded-full border border-slate-700 bg-slate-800/70 p-2"><nz-icon nzType="instagram" nzTheme="fill" /></span>
+            <span class="rounded-full border border-slate-700 bg-slate-800/70 p-2"><nz-icon nzType="linkedin" nzTheme="fill" /></span>
+          </div>
+        </div>
+
+        <div class="space-y-3">
+          <h4 class="text-sm font-semibold uppercase tracking-[0.2em] text-slate-200">Product</h4>
+          <a href="/" class="block text-sm text-slate-300 hover:text-emerald-200">Home</a>
+          <a href="/create" class="block text-sm text-slate-300 hover:text-emerald-200">Rooms</a>
+          <a href="/profile" class="block text-sm text-slate-300 hover:text-emerald-200">Profile</a>
+        </div>
+
+        <div class="space-y-3">
+          <h4 class="text-sm font-semibold uppercase tracking-[0.2em] text-slate-200">Company</h4>
+          <a href="/about" target="_self" class="block text-sm text-slate-300 hover:text-emerald-200">About us</a>
+          <a href="/contact" target="_self" class="block text-sm text-slate-300 hover:text-emerald-200">Contact</a>
+          <a href="/privacy" target="_self" class="block text-sm text-slate-300 hover:text-emerald-200">Privacy policy</a>
+        </div>
+
+        <div class="space-y-3">
+          <h4 class="text-sm font-semibold uppercase tracking-[0.2em] text-slate-200">Resources</h4>
+          <p class="text-sm text-slate-300">Live whiteboard experience</p>
+          <p class="text-sm text-slate-300">Team collaboration workflow</p>
+          <p class="text-sm text-slate-300">Secure user profiles</p>
+        </div>
+      </div>
+
+      <div
+        class="mt-8 flex flex-col gap-2 border-t border-slate-700/70 pt-4 text-sm text-slate-400 sm:flex-row sm:items-center sm:justify-between"
+      >
+        <p>&copy; {{ currentYear }} BrainConnect. All rights reserved.</p>
+        <p>Built for faster teamwork on shared ideas.</p>
+      </div>
+    </div>
+  </footer>
+}
+
