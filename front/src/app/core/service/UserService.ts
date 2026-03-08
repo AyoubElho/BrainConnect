@@ -3,13 +3,13 @@ import axios from 'axios';
 import { User } from '../module/room/User';
 import { LoginRequest } from './LoginRequest';
 import { SignupRequest } from './SignupRequest';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UserService {
-  private apiUrl = 'http://localhost:8080/api/user/';
-  // private apiUrl = 'https://brainconnect-backend.onrender.com/api/user/';
+  private apiUrl = `${environment.apiBaseUrl}${environment.apiUserPath}`;
 
   saveUser(user: User) {
     return axios.post(this.apiUrl + 'save', user);

@@ -1,10 +1,10 @@
 import { Room } from '../module/room/Room';
 import axios from 'axios';
 import { User } from '../module/room/User';
+import { environment } from '../../../environments/environment';
 
 export default class RoomService {
-  url: string = 'http://localhost:8080/api/rooms';
-  // url: string = 'https://brainconnect-backend.onrender.com/api/rooms';
+  url: string = `${environment.apiBaseUrl}${environment.apiRoomsPath}`;
 
 
   public saveRoom(room: Room, user: User) {
