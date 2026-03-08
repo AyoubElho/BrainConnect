@@ -1,6 +1,6 @@
 export const environment = {
   production: false,
-  apiBaseUrl: 'http://localhost:8080',
+  apiBaseUrl: 'https://brainconnect-production.up.railway.app',
   apiUserPath: '/api/user/',
   apiRoomsPath: '/api/rooms'
 };
