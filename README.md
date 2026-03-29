@@ -15,13 +15,13 @@ These screenshots are stored in `docs/screenshots` and use relative paths so the
     <td align="center">
       <strong>Home</strong><br />
       <a href="./docs/screenshots/home.png">
-        <img src="./docs/screenshots/home.png" alt="Home Page Screenshot" width="100%" />
+        <img width="1920" height="1080" alt="home" src="https://github.com/user-attachments/assets/ad33d3b2-d756-43af-af1b-d2afe8ce45fc" />
       </a>
     </td>
     <td align="center">
       <strong>Login</strong><br />
       <a href="./docs/screenshots/login.png">
-        <img src="./docs/screenshots/login.png" alt="Login Page Screenshot" width="100%" />
+        <img width="1920" height="1080" alt="login" src="https://github.com/user-attachments/assets/d3fbf8a5-b735-4a2b-85a7-caf7ce0089a1" />
       </a>
     </td>
   </tr>
@@ -29,13 +29,13 @@ These screenshots are stored in `docs/screenshots` and use relative paths so the
     <td align="center">
       <strong>Signup</strong><br />
       <a href="./docs/screenshots/signup.png">
-        <img src="./docs/screenshots/signup.png" alt="Signup Page Screenshot" width="100%" />
+        <img width="1920" height="1080" alt="signup" src="https://github.com/user-attachments/assets/523ec3ad-ac8e-4c71-9a1e-251b8054609f" />
       </a>
     </td>
     <td align="center">
       <strong>Create and Join</strong><br />
       <a href="./docs/screenshots/create-join.png">
-        <img src="./docs/screenshots/create-join.png" alt="Create and Join Screenshot" width="100%" />
+        <img width="1920" height="1080" alt="create-join" src="https://github.com/user-attachments/assets/9bea02c5-6669-4b01-b9d9-04d66943ffcf" />
       </a>
     </td>
   </tr>
@@ -43,13 +43,13 @@ These screenshots are stored in `docs/screenshots` and use relative paths so the
     <td align="center">
       <strong>My Rooms</strong><br />
       <a href="./docs/screenshots/my-rooms.png">
-        <img src="./docs/screenshots/my-rooms.png" alt="My Rooms Screenshot" width="100%" />
+        <img width="1920" height="1080" alt="create-join" src="https://github.com/user-attachments/assets/e82375e4-7bb7-4b3f-bd26-c6a486a378ce" />
       </a>
     </td>
     <td align="center">
       <strong>Editor</strong><br />
       <a href="./docs/screenshots/editor.png">
-        <img src="./docs/screenshots/editor.png" alt="Editor Screenshot" width="100%" />
+        <img width="1920" height="1080" alt="editor" src="https://github.com/user-attachments/assets/8f3b67aa-81ca-4771-b7c9-31f8d01f1147" />
       </a>
     </td>
   </tr>
@@ -57,7 +57,7 @@ These screenshots are stored in `docs/screenshots` and use relative paths so the
     <td align="center" colspan="2">
       <strong>Profile</strong><br />
       <a href="./docs/screenshots/profile.png">
-        <img src="./docs/screenshots/profile.png" alt="Profile Screenshot" width="100%" />
+        <img width="1920" height="1080" alt="profile" src="https://github.com/user-attachments/assets/5c51649d-3ab0-4d91-ba7d-6a69d6cdeea2" />
       </a>
     </td>
   </tr>
